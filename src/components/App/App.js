@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './App.css';
+import Form from '../Form';
 import fetchCalls from './APICalls';
 import TrickContainer from '../TrickContainer';
 
@@ -22,6 +23,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Sick Trick Wish List</h1>
+        <Form />
         {this.state.tricks && <TrickContainer tricks={this.state.tricks} />}
       </div>
     );
