@@ -5,7 +5,7 @@ class Form extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      stance: null,
+      stance: '',
       name: '',
       obstacle: 'flatground',
       link: '',
@@ -22,6 +22,16 @@ class Form extends Component {
     this.setState({obstacle: value})
   }
 
+  handleNameChange = (event) => {
+    let value = event.target.value;
+    this.setState({name: value})
+  }
+
+  handleLinkChange = (event) => {
+    let value = event.target.value;
+    this.setState({link: value})
+  }
+
   handleSubmit = (event) => {
     alert('You submitted stuff!');
     event.preventDefault();
@@ -35,7 +45,7 @@ class Form extends Component {
           <option value="regular">Regular</option>
           <option value="switch">Switch</option>
         </select>
-        <input type="text" value="Name Of Trick"/>
+        <input type="text" value={this.state.name} onChange={this.handleNameChange} placeholder="Name of Trick" />
         <select name="obstacle" value={this.state.obstacle} onChange={this.handleObstacleChange} >
           <option value="flatground">Flat Ground</option>
           <option value="ledge">Ledge</option>
@@ -43,7 +53,7 @@ class Form extends Component {
           <option value="stairs">Stairs</option>
           <option value="pool">Pool</option>
         </select>
-        <input type="text" value="Link to Tutorial"/>
+        <input type="text" placeholder="Link to Tutorial" value={this.state.link} onChange={this.handleLinkChange}/>
         <input type="submit" value="Send It!" />
       </form>
     )
