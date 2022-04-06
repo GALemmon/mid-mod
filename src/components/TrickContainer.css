@@ -1,0 +1,6 @@
+.trick-container {
+  border: 1px solid pink;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 95%;
+}
